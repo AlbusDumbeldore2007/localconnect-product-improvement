@@ -1,18 +1,30 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { Home, AlertCircle, CheckSquare, BarChart2, Award } from 'lucide-react';
+import { NavLink, Link } from 'react-router-dom';
+import { Home, MessageSquare, AlertCircle, Calendar, HeartHandshake } from 'lucide-react';
 
 const Navbar = () => {
   return (
     <nav className="navbar">
       <div className="nav-container">
-        <Link to="/" className="nav-logo">LocalConnect</Link>
+        <Link to="/" className="nav-logo">
+          🏡 LocalConnect
+        </Link>
         <div className="nav-links">
-          <Link to="/" className="nav-item"><BarChart2 size={18} /> Dashboard</Link>
-          <Link to="/feed" className="nav-item"><Home size={18} /> Feed</Link>
-          <Link to="/issues" className="nav-item"><AlertCircle size={18} /> Issues</Link>
-          <Link to="/tasks" className="nav-item"><CheckSquare size={18} /> Tasks</Link>
-          <Link to="/leaderboard" className="nav-item"><Award size={18} /> Leaders</Link>
+          <NavLink to="/" end className={({ isActive }) => `nav-item ${isActive ? 'nav-item-active' : ''}`}>
+            <Home size={18} /> Overview
+          </NavLink>
+          <NavLink to="/feed" className={({ isActive }) => `nav-item ${isActive ? 'nav-item-active' : ''}`}>
+            <MessageSquare size={18} /> Feed
+          </NavLink>
+          <NavLink to="/issues" className={({ isActive }) => `nav-item ${isActive ? 'nav-item-active' : ''}`}>
+            <AlertCircle size={18} /> Issues
+          </NavLink>
+          <NavLink to="/events" className={({ isActive }) => `nav-item ${isActive ? 'nav-item-active' : ''}`}>
+            <Calendar size={18} /> Events
+          </NavLink>
+          <NavLink to="/recommendations" className={({ isActive }) => `nav-item ${isActive ? 'nav-item-active' : ''}`}>
+            <HeartHandshake size={18} /> Recommendations
+          </NavLink>
         </div>
       </div>
     </nav>
