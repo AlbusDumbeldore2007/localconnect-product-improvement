@@ -1,0 +1,257 @@
+{
+  "posts": [
+    {
+      "id": 9,
+      "content": "Persistence Verification Post 1793073369352",
+      "createdAt": "2026-10-27T03:56:09.355Z"
+    },
+    {
+      "id": 8,
+      "content": "Community Notice Test 1793073369128",
+      "createdAt": "2026-10-27T03:56:09.141Z"
+    },
+    {
+      "id": 7,
+      "content": "Persistence Verification Post 1793073219577",
+      "createdAt": "2026-10-27T03:53:39.583Z"
+    },
+    {
+      "id": 6,
+      "content": "Community Notice Test 1793073219305",
+      "createdAt": "2026-10-27T03:53:39.322Z"
+    },
+    {
+      "id": 5,
+      "content": "Community Notice Test 1793073196426",
+      "createdAt": "2026-10-27T03:53:16.441Z"
+    },
+    {
+      "id": 4,
+      "content": "Community Notice Test 1793073161095",
+      "createdAt": "2026-10-27T03:52:41.889Z"
+    },
+    {
+      "id": 1,
+      "content": "Garage sale announcement - This Saturday at 123 Maple St!",
+      "createdAt": "2026-10-26T23:52:40.620Z"
+    },
+    {
+      "id": 2,
+      "content": "Lost dog notice - Golden Retriever named \"Buddy\" last seen near Oak Park. Please call (555) 0192 if spotted!",
+      "createdAt": "2026-10-26T15:52:40.620Z"
+    },
+    {
+      "id": 3,
+      "content": "Community block cleanup - Meet at the community center this Sunday at 9 AM. Gloves and bags provided!",
+      "createdAt": "2026-10-26T03:52:40.620Z"
+    }
+  ],
+  "issues": [
+    {
+      "id": 7,
+      "status": "RESOLVED",
+      "title": "Clogged storm drain on Maple",
+      "description": "Water ponding after heavy rain.",
+      "createdAt": "2026-10-27T03:56:09.175Z"
+    },
+    {
+      "id": 6,
+      "status": "RESOLVED",
+      "title": "Clogged storm drain on Maple",
+      "description": "Water ponding after heavy rain.",
+      "createdAt": "2026-10-27T03:53:39.355Z"
+    },
+    {
+      "id": 5,
+      "status": "RESOLVED",
+      "title": "Clogged storm drain on Maple",
+      "description": "Water ponding after heavy rain.",
+      "createdAt": "2026-10-27T03:53:16.470Z"
+    },
+    {
+      "id": 4,
+      "title": "Clogged storm drain on Maple",
+      "description": "Water ponding after heavy rain.",
+      "createdAt": "2026-10-27T03:52:41.928Z"
+    },
+    {
+      "id": 1,
+      "title": "Broken Streetlight",
+      "description": "Corner of 4th and Oak is pitch black at night, making walking unsafe.",
+      "status": "OPEN",
+      "createdAt": "2026-10-25T03:52:40.620Z"
+    },
+    {
+      "id": 2,
+      "title": "Park Trash Bins Overflowing",
+      "description": "Maplewood Park bins have not been emptied since weekend soccer games.",
+      "status": "IN_PROGRESS",
+      "createdAt": "2026-10-26T03:52:40.620Z"
+    },
+    {
+      "id": 3,
+      "title": "Deep Pothole on Elm Street",
+      "description": "Large pothole near school crosswalk causing cars to swerve into bike lane.",
+      "status": "RESOLVED",
+      "createdAt": "2026-10-24T03:52:40.620Z"
+    }
+  ],
+  "events": [
+    {
+      "id": 7,
+      "category": "Cleanup",
+      "attendees": 2,
+      "title": "Oak Park Spring Cleanup 2026",
+      "description": "Bring rakes and garden gloves.",
+      "date": "Saturday, Nov 22 • 10:00 AM",
+      "location": "Oak Park Gazebo",
+      "organizer": "Marcus D.",
+      "createdAt": "2026-10-27T03:56:09.250Z"
+    },
+    {
+      "id": 6,
+      "category": "Cleanup",
+      "attendees": 2,
+      "title": "Oak Park Spring Cleanup 2026",
+      "description": "Bring rakes and garden gloves.",
+      "date": "Saturday, Nov 22 • 10:00 AM",
+      "location": "Oak Park Gazebo",
+      "organizer": "Marcus D.",
+      "createdAt": "2026-10-27T03:53:39.451Z"
+    },
+    {
+      "id": 5,
+      "category": "Cleanup",
+      "attendees": 2,
+      "title": "Oak Park Spring Cleanup 2026",
+      "description": "Bring rakes and garden gloves.",
+      "date": "Saturday, Nov 22 • 10:00 AM",
+      "location": "Oak Park Gazebo",
+      "organizer": "Marcus D.",
+      "createdAt": "2026-10-27T03:53:16.545Z"
+    },
+    {
+      "id": 4,
+      "title": "Oak Park Spring Cleanup 2026",
+      "description": "Bring rakes and garden gloves.",
+      "date": "Saturday, Nov 22 • 10:00 AM",
+      "location": "Oak Park Gazebo",
+      "organizer": "Marcus D.",
+      "category": "Cleanup",
+      "attendees": 2,
+      "createdAt": "2026-10-27T03:52:41.953Z"
+    },
+    {
+      "id": 1,
+      "title": "Neighborhood Spring Clean-Up & Tree Planting",
+      "description": "Join fellow neighbors to pick up litter along Oak Creek and plant 15 shade saplings. Coffee and donuts provided by Maplewood Bakery!",
+      "date": "Saturday, Nov 15 • 9:00 AM",
+      "location": "Maplewood Community Park Pavilion",
+      "organizer": "Elena Rostova",
+      "category": "Cleanup",
+      "attendees": 16,
+      "createdAt": "2026-10-26T09:52:40.620Z"
+    },
+    {
+      "id": 2,
+      "title": "Annual Elm Street Block Party & Potluck",
+      "description": "Bring a dish or dessert! We will have live acoustic music, face painting for kids, and a grilling station.",
+      "date": "Sunday, Nov 23 • 4:00 PM",
+      "location": "Elm Street Cul-de-sac",
+      "organizer": "Marcus Davis",
+      "category": "Social",
+      "attendees": 32,
+      "createdAt": "2026-10-26T17:52:40.620Z"
+    },
+    {
+      "id": 3,
+      "title": "Neighborhood Watch & Traffic Safety Townhall",
+      "description": "Meet with local safety liaisons to discuss speed humps on 4th Ave and neighborhood watch coordination.",
+      "date": "Thursday, Dec 4 • 7:00 PM",
+      "location": "Local Public Library Meeting Room B",
+      "organizer": "Community Council",
+      "category": "Meeting",
+      "attendees": 21,
+      "createdAt": "2026-10-26T22:52:40.620Z"
+    }
+  ],
+  "recommendations": [
+    {
+      "id": 7,
+      "rating": 5,
+      "likes": 2,
+      "title": "Dan the Handyman Services",
+      "category": "Home Repair",
+      "description": "Fixed our front porch steps cleanly and promptly.",
+      "contact": "(555) 991-2345",
+      "recommendedBy": "David Miller",
+      "createdAt": "2026-10-27T03:56:09.298Z"
+    },
+    {
+      "id": 6,
+      "rating": 5,
+      "likes": 2,
+      "title": "Dan the Handyman Services",
+      "category": "Home Repair",
+      "description": "Fixed our front porch steps cleanly and promptly.",
+      "contact": "(555) 991-2345",
+      "recommendedBy": "David Miller",
+      "createdAt": "2026-10-27T03:53:39.511Z"
+    },
+    {
+      "id": 5,
+      "rating": 5,
+      "likes": 2,
+      "title": "Dan the Handyman Services",
+      "category": "Home Repair",
+      "description": "Fixed our front porch steps cleanly and promptly.",
+      "contact": "(555) 991-2345",
+      "recommendedBy": "David Miller",
+      "createdAt": "2026-10-27T03:53:16.600Z"
+    },
+    {
+      "id": 4,
+      "title": "Dan the Handyman Services",
+      "category": "Home Repair",
+      "description": "Fixed our front porch steps cleanly and promptly.",
+      "contact": "(555) 991-2345",
+      "recommendedBy": "David Miller",
+      "rating": 5,
+      "likes": 2,
+      "createdAt": "2026-10-27T03:52:42.012Z"
+    },
+    {
+      "id": 1,
+      "title": "Apex Plumbing & Drain Solutions",
+      "category": "Plumbing",
+      "description": "Fixed a ruptured kitchen pipe on a Sunday morning within 30 minutes. Clear upfront pricing, polite, and spotless cleanup.",
+      "contact": "(555) 234-8891 • apexplumb@gmail.com",
+      "recommendedBy": "Sarah Jenkins",
+      "rating": 5,
+      "likes": 14,
+      "createdAt": "2026-10-25T21:52:40.620Z"
+    },
+    {
+      "id": 2,
+      "title": "BrightSpark Electrical Services",
+      "category": "Electrical",
+      "description": "Installed our Level 2 EV home charger and added outdoor surge protection. Fully licensed and handled city permits seamlessly.",
+      "contact": "(555) 782-3401",
+      "recommendedBy": "David Chen",
+      "rating": 5,
+      "likes": 11,
+      "createdAt": "2026-10-26T07:52:40.620Z"
+    },
+    {
+      "id": 3,
+      "title": "GreenThumb Lawn & Tree Care",
+      "category": "Gardening",
+      "description": "Family-run local yard service. They do spring aeration, tree trimming, and garden bed mulching at very reasonable neighbor rates.",
+      "contact": "greenthumb@localmail.com",
+      "recommendedBy": "Rachel Patel",
+      "rating": 5,
+      "likes": 9,
+      "createdAt": "2026-10-26T12:52:40.620Z"
+    }
+  ]
+}

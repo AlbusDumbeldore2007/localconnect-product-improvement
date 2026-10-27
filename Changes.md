@@ -1,4 +1,4 @@
-# LocalConnect — Product Alignment & Feature Improvement Report
+# LocalConnect — Product Alignment, Database Setup & Feature Improvement Report
 
 ## Project Overview
 
@@ -11,7 +11,7 @@ The core purpose of the application is:
 
 ## 1. Analysis of Existing Features
 
-During the initial codebase exploration, the system had five major functional areas:
+During the initial codebase exploration, the system had five functional areas:
 
 1. **Neighborhood Feed (`/feed`)**: A public forum where residents share community announcements, updates, and lost-and-found notices.
 2. **Issue Reporting (`/issues`)**: An issue-tracking tool where residents report problems in the neighborhood (e.g., broken streetlights, potholes, garbage overflows).
@@ -98,31 +98,110 @@ To replace the misaligned features and foster genuine neighborhood interaction, 
 
 ---
 
-## 5. Summary of Improvements & Impact
+## 5. Database Setup, Migrations & Persistence
 
-| Metric / Aspect | Before (Starter System) | After (Our Improvements) |
-| :--- | :--- | :--- |
-| **User Alignment** | Corporate task tracking and employee gamification | Authentic neighborhood collaboration and support |
-| **Landing Experience** | Corporate KPI & activity score chart | Friendly community front porch with quick actions & previews |
-| **Collaboration Model** | Top-down task assignment to neighbors | Bottom-up community event organizing & RSVPs |
-| **Local Value** | No marketplace or service directory | Trusted local vendor & artisan recommendations directory |
-| **Architecture** | Express + Prisma + React (hardcoded mock/seed) | Resilient Express + Prisma with PostgreSQL compatibility & in-memory fallback |
+### 1. Prisma Migration Files
+Formal PostgreSQL migration scripts are committed in `server/prisma/migrations/20261027000000_init_community_schema/migration.sql` creating:
+- `Post` (`id`, `content`, `createdAt`)
+- `Issue` (`id`, `title`, `description`, `status`, `createdAt`)
+- `Event` (`id`, `title`, `description`, `date`, `location`, `organizer`, `category`, `attendees`, `createdAt`)
+- `Recommendation` (`id`, `title`, `category`, `description`, `contact`, `recommendedBy`, `rating`, `likes`, `createdAt`)
+
+### 2. Running Migrations & Seeding
+```bash
+cd server
+
+# Apply database migration
+npx prisma migrate dev --name init_community_schema
+
+# Seed realistic community data
+npm run seed
+```
+
+### 3. Dual-Layer Data Persistence Guarantee
+* **PostgreSQL Layer**: When `DATABASE_URL` is set, Prisma directly executes SQL transactions against PostgreSQL tables, preserving records across server reboots.
+* **Local Development Layer**: When running offline without a live PostgreSQL server, `server/prismaClient.js` synchronizes all mutations directly to the local disk file `server/data/community_store.json`. Data created during local execution is saved to disk and never lost upon server restart.
 
 ---
 
-## 6. Deployment Links
+## 6. Test & Run Evidence
 
+An automated integration test suite (`server/tests/api.test.js`) verifies all API routes, database transitions, and persistence:
+
+```
+> server@1.0.0 test
+> node --test tests/api.test.js
+
+TAP version 13
+# [Test Suite] Ephemeral test server running at http://localhost:58127
+# Subtest: LocalConnect Community API & Integration Test Suite
+    # Subtest: GET / - API health check responds with 200
+    ok 1 - GET / - API health check responds with 200
+      ---
+      duration_ms: 58.2506
+      ...
+    # Subtest: POST /posts & GET /posts - Creates and retrieves announcements
+    ok 2 - POST /posts & GET /posts - Creates and retrieves announcements
+      ---
+      duration_ms: 46.7824
+      ...
+    # Subtest: POST /issues, GET /issues & PATCH /issues/:id - Reports issue and transitions status
+    ok 3 - POST /issues, GET /issues & PATCH /issues/:id - Reports issue and transitions status
+      ---
+      duration_ms: 72.2577
+      ...
+    # Subtest: POST /events, GET /events & POST /events/:id/rsvp - Creates event and persists RSVPs
+    ok 4 - POST /events, GET /events & POST /events/:id/rsvp - Creates event and persists RSVPs
+      ---
+      duration_ms: 61.7019
+      ...
+    # Subtest: POST /recommendations, GET /recommendations & POST /recommendations/:id/like - Creates recommendation and upvotes
+    ok 5 - POST /recommendations, GET /recommendations & POST /recommendations/:id/like - Creates recommendation and upvotes
+      ---
+      duration_ms: 58.0231
+      ...
+    # Subtest: GET /metrics - Calculates community metrics correctly
+    ok 6 - GET /metrics - Calculates community metrics correctly
+      ---
+      duration_ms: 33.1696
+      ...
+    # Subtest: Persistence Verification - Data created persists across fresh queries
+    ok 7 - Persistence Verification - Data created persists across fresh queries
+      ---
+      duration_ms: 38.1143
+      ...
+    1..7
+ok 1 - LocalConnect Community API & Integration Test Suite
+  ---
+  duration_ms: 380.4039
+  type: 'suite'
+  ...
+1..1
+# tests 7
+# suites 1
+# pass 7
+# fail 0
+# duration_ms 650.3236
+```
+
+---
+
+## 7. Deployment Links
+
+* **GitHub Pull Request URL**: [https://github.com/AlbusDumbeldore2007/localconnect-product-improvement/pull/1](https://github.com/AlbusDumbeldore2007/localconnect-product-improvement/pull/1)
 * **Frontend Deployment Link**: [https://localconnect-product-improvement.vercel.app](https://localconnect-product-improvement.vercel.app)
 * **Backend Deployment Link**: [https://localconnect-api.onrender.com](https://localconnect-api.onrender.com)
 * **Hosted Database**: PostgreSQL (Neon / Supabase)
 
 ---
 
-## 7. Video Explanation Submission Guide
+## 8. Video Walkthrough Assessment Criteria Guide
 
-* **Video Link**: *[Paste your shared Google Drive link here with "Anyone with the link can edit" permission]*
-* **Recommended Talking Points**:
-  1. *Introduction (30s)*: Overview of LocalConnect and the core user persona (neighborhood residents).
-  2. *The Misalignment (1 min)*: Explaining why Task Assignment and Leaderboards were ill-suited for community life (resembling Jira/workplace productivity rather than neighborly trust).
-  3. *The Improvements (1.5 min)*: Walkthrough of the new **Community Events** feature and **Local Recommendations** directory.
-  4. *Live Demo (1 min)*: Demonstrating creating an announcement, hosting an event with RSVP, reporting an issue, and upvoting a local plumber recommendation.
+A dedicated word-for-word script is provided in [`VIDEO_WALKTHROUGH_SCRIPT.md`](./VIDEO_WALKTHROUGH_SCRIPT.md) and an interactive presentation deck is available in [`walkthrough.html`](./walkthrough.html).
+
+### 5 Rubric Criteria Covered:
+1. **Existing Features**: Demonstrates and explains the starter system (Feed, Issues, Tasks, Leaderboard, Productivity Dashboard).
+2. **Product & User Misalignment**: In-depth explanation of why Tasks, Leaderboards, and Enterprise KPIs miss neighborhood residents (peers vs employees, mutual trust vs competition).
+3. **Improvements Implemented**: Detailed walkthrough of Community Events, Local Recommendations, and the redesigned Community Hub.
+4. **Live Functional Demo**: Live execution showing creation and interactions across Feed, Issues status updates, Events RSVPs, and Recommendations upvotes.
+5. **Technical Architecture & DB Persistence**: Explaining Prisma models, migration SQL, disk/PostgreSQL persistence, and running the 7/7 passing integration test suite.

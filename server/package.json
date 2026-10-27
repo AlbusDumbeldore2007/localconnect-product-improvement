@@ -1,15 +1,23 @@
 {
   "name": "server",
   "version": "1.0.0",
-  "description": "",
+  "description": "LocalConnect Community Platform Backend API",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
+    "test": "node --test tests/api.test.js",
     "seed": "node prisma/seed.js",
     "prisma:generate": "npx prisma generate",
-    "prisma:migrate": "npx prisma migrate dev"
+    "prisma:migrate": "npx prisma migrate dev",
+    "prisma:deploy": "npx prisma migrate deploy"
   },
-  "keywords": [],
+  "keywords": [
+    "localconnect",
+    "community",
+    "neighborhood",
+    "express",
+    "prisma"
+  ],
   "author": "",
   "license": "ISC",
   "type": "commonjs",
