@@ -4,7 +4,8 @@ require('dotenv').config();
 
 const postsRoutes = require('./routes/posts');
 const issuesRoutes = require('./routes/issues');
-const tasksRoutes = require('./routes/tasks');
+const eventsRoutes = require('./routes/events');
+const recommendationsRoutes = require('./routes/recommendations');
 const metricsRoutes = require('./routes/metrics');
 
 const app = express();
@@ -15,13 +16,14 @@ app.use(express.json());
 
 app.use('/posts', postsRoutes);
 app.use('/issues', issuesRoutes);
-app.use('/tasks', tasksRoutes);
+app.use('/events', eventsRoutes);
+app.use('/recommendations', recommendationsRoutes);
 app.use('/metrics', metricsRoutes);
 
 app.get('/', (req, res) => {
-  res.send('LocalConnect API is running...');
+  res.send('LocalConnect Neighborhood API is running...');
 });
 
 app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
+  console.log(`LocalConnect Server is running on port ${PORT}`);
 });

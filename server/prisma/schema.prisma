@@ -4,6 +4,7 @@ generator client {
 
 datasource db {
   provider = "postgresql"
+  url      = env("DATABASE_URL")
 }
 
 model Post {
@@ -20,10 +21,26 @@ model Issue {
   createdAt   DateTime @default(now())
 }
 
-model Task {
+model Event {
   id          Int      @id @default(autoincrement())
   title       String
-  assignedTo  String
-  status      String   @default("PENDING")
+  description String
+  date        String
+  location    String
+  organizer   String
+  category    String   @default("General")
+  attendees   Int      @default(0)
   createdAt   DateTime @default(now())
+}
+
+model Recommendation {
+  id            Int      @id @default(autoincrement())
+  title         String
+  category      String
+  description   String
+  contact       String
+  recommendedBy String
+  rating        Int      @default(5)
+  likes         Int      @default(0)
+  createdAt     DateTime @default(now())
 }
